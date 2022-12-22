@@ -83,7 +83,9 @@ def sleep():
     data = requests.get(f'https://space.pifragile.com/pifragile/get-config').json()
     min_hrs = data['twitter_interval_min_hours']
     max_hrs = data['twitter_interval_max_hours']
-    time.sleep(random.randint(int(min_hrs * 3600), int(max_hrs * 3600)))
+    sleep_time = random.randint(int(min_hrs * 3600), int(max_hrs * 3600))
+    print(f'Sleeping for {sleep_time} seconds')
+    time.sleep(sleep_time)
 
 while True:
     tweet()
